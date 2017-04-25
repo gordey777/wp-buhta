@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php $images = get_field('post_gallery'); ?>
 
-      <div class="wrapper title-wrap-sinhts-inst" >
+      <div class="wrapper title-wrap-sinhts-inst <?php if( !$images ) { ?>no-image-title<?php } ?>" >
         <h2 <?php if( $images ) { ?>class="singht-int-h2"<?php } ?>><?php the_title(); ?></h2>
         <?php edit_post_link(); ?>
       </div>
@@ -46,10 +46,10 @@
 
             </div>
           </div>
-          <div class="col-md-6 col-sm-12">
+          <div class="col-md-6 col-sm-12 content">
         <?php }
         else { ?>
-          <div class="col-md-12 col-sm-12">
+          <div class="col-md-12 col-sm-12 content">
         <?php } ?>
 
           <?php the_content(); ?>

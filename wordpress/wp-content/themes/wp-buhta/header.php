@@ -27,9 +27,9 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <header class="main-header">
+  <header class="main-header <?php if( is_category() ){ ?>head-sights-int<?php } ?>">
 
-    <div class="head-content-wrap" <?php if( get_field('title_bg') ) { ?>style="background: url(<?php the_field('title_bg'); ?>) no-repeat center center; background-size: 100%;"<?php } ?>>
+    <div class="head-content-wrap" <?php if( get_field('title_bg') ) { ?>style="background: url(<?php the_field('title_bg'); ?>) no-repeat center center; background-size: cover;"<?php } ?>>
       <div class="header-nav-row">
         <div class="nav container-fluid">
           <div class="wrapper">

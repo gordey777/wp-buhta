@@ -2,6 +2,7 @@
 
       <div class="wrapper title-wrap-sinhts-inst">
         <h2 class="singht-int-h2"><?php if( is_category() ) echo get_queried_object()->name; ?></h2>
+        <?php echo category_description( $category_id ); ?>
       </div>
     </div>
   </header>

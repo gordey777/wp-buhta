@@ -187,9 +187,10 @@ header {
 }
 
 .page-template-page-contacts {
-  .title-wrap-sinhts-inst {
+  header {
     //min-height: 281px;
     background: url(../img/contacts/contacts-head-bg.jpg) no-repeat top center;
+    background-size: cover;
   }
 }
 
@@ -1445,6 +1446,43 @@ p.rock-title {
   max-width: 1632px;
 }
 
+
+
+p {
+  &.paragraph,
+  &.before-footer {
+    font-family: 'Lato-regular', sans-serif;
+    font-size: 15px;
+
+    color: #333;
+  }
+  &.paragraph span,
+  &.before-footer span {
+    font-family: 'Lato-regular', sans-serif;
+
+    color: #333;
+  }
+  &.paragraph {
+    &.fifth {
+      margin-bottom: 10px;
+    }
+    &.second span {
+      display: block;
+
+      margin-bottom: 15px;
+    }
+    &.sixth {
+      margin-bottom: 20px;
+    }
+    &.seventh {
+      font-style: italic;
+    }
+    &.ninth {
+      margin-bottom: 30px;
+    }
+  }
+}
+
 section.relax {
   padding: 100px 0;
   h2 {
@@ -1468,6 +1506,12 @@ section.relax {
 
     margin: 15px 0 7px 0;
   }
+  ol {
+    font-family: 'Lato-regular', sans-serif;
+    line-height: 30px;
+
+    margin-left: 20px;
+  }
   ul {
     font-family: 'Lato-regular', sans-serif;
     line-height: 30px;
@@ -1477,6 +1521,8 @@ section.relax {
 }
 
 p {
+  font-family: 'Lato-regular', sans-serif;
+  font-size: 15px;
   &.paragraph,
   &.before-footer {
     font-family: 'Lato-regular', sans-serif;
