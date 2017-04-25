@@ -1,0 +1,120 @@
+/* @import 'import/reset';
+@import 'import/variables';
+@import 'import/buttons';
+@import 'import/forms';
+@import 'import/lists';
+@import 'import/tables';
+@import 'import/mixin';
+@import 'import/wordpress';
+
+@import 'grid/bootstrap';
+@import 'grid/bootstrap-theme';
+
+@import 'super_sprite';
+
+
+@import 'fonts/font_roboto';
+@import 'base64';
+@import 'import/print'; */
+@import 'fonts/font_fontawesome';
+@import 'bootstrap';
+@import 'slick';
+@import 'slick-theme';
+@import 'jquery.bxslider';
+@import 'fonts';
+@import 'style';
+@import 'media';
+
+
+
+
+.bx-wrapper {
+  .bx-next,
+  .bx-prev {
+    color: #fff;
+    background: transparent;
+    &:before {
+      font-family: 'FontAwesome';
+      font-size: 40px;
+
+      position: absolute;
+      z-index: 9;
+      top: -8px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      display: block;
+
+      text-indent: 0;
+    }
+    &:hover {
+      color: #0174d3;
+    }
+  }
+  .bx-prev {
+    &:before {
+      //content: '\f053';
+      content: '\f104';
+    }
+  }
+  .bx-next {
+    &:before {
+      //content: '\f054';
+      content: '\f105';
+    }
+  }
+}
+
+.wpcf7-form {
+  .quest-button-row {
+    float: none;
+
+    text-align: center;
+    vertical-align: top;
+    .text-fild,
+    .submit-fild {
+      display: inline-block;
+
+      margin: 0 auto;
+
+      vertical-align: top;
+      //float: left;
+
+      box-size: border-box;
+      input {
+        line-height: 50px;
+
+        display: inline-block;
+
+        height: 50px;
+        margin: auto;
+        padding: 0;
+
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+    .text-fild {
+      input {
+        width: 230px;
+
+        color: #666;
+        border: 2px solid #0174d3;
+        border-radius: 0;
+      }
+    }
+    .submit-fild {
+      margin-left: 26px;
+      input {
+        width: 210px;
+
+        text-transform: uppercase;
+
+        color: #fff;
+        border-radius: 0;
+        background-color: #008cff;
+      }
+    }
+  }
+}
