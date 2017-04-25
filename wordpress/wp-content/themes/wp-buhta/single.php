@@ -1,37 +1,71 @@
 <?php get_header(); ?>
+<?php $images = get_field('post_gallery'); ?>
+
+      <div class="wrapper title-wrap-sinhts-inst" >
+        <h2 <?php if( $images ) { ?>class="singht-int-h2"<?php } ?>><?php the_title(); ?></h2>
+        <?php edit_post_link(); ?>
+      </div>
+    </div>
+  </header>
+  <!-- header and -->
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-      <h1 class="single-title inner-title"><?php the_title(); ?></h1>
-      <?php if ( has_post_thumbnail()) :?>
-        <a class="single-thumb" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-          <?php the_post_thumbnail(); // Fullsize image for the single post ?>
-        </a>
-      <?php endif; ?><!-- /post thumbnail -->
 
-      <span class="date"><?php the_time('d F Y'); ?> <?php the_time('H:i'); ?></span>
-      <span class="author"><?php _e( 'Published by', 'wpeasy' ); ?> <?php the_author_posts_link(); ?></span>
-      <span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpeasy' ), __( '1 Comment', 'wpeasy' ), __( '% Comments', 'wpeasy' )); ?></span><!-- /post details -->
+  <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div class="container-fluid rock-slide">
+      <div class="row">
 
-      <?php the_content(); ?>
+        <?php
+        if( $images ) { ?>
+          <div class="col-md-6 col-sm-12">
+            <div class="rama-wrap">
 
-      <?php the_tags( __( 'Tags: ', 'wpeasy' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+              <ul class="bxpost-gallery">
+                <?php foreach( $images as $image ): ?>
+                  <li>
+                    <a href="<?php echo $image['url']; ?>" rel="lightbox">
+                         <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
+                    </a>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
 
-      <p><?php _e( 'Categorised in: ', 'wpeasy' ); the_category(', '); // Separated by commas ?></p>
+              <div class="pager_wrapp">
+                <ul id="bx-pager">
+                <?php $i = 0;
+                  foreach( $images as $image ): ?>
+                    <li>
+                      <a data-slide-index="<?php echo $i; ?>" href="">
+                        <img src="<?php echo $image['sizes']['custom-size-small']; ?>" alt="<?php echo $image['alt']; ?>" />
+                      </a>
+                    </li>
+                    <?php $i++;
+                  endforeach; ?>
+                </ul>
+              </div>
 
-      <p><?php _e( 'This post was written by ', 'wpeasy' ); the_author(); ?></p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+        <?php }
+        else { ?>
+          <div class="col-md-12 col-sm-12">
+        <?php } ?>
 
-      <?php edit_post_link(); ?>
+          <?php the_content(); ?>
+        </div>
 
-      <?php comments_template(); ?>
 
-    </article>
+
+      </div><!-- /.row -->
+    </div>
+  </section>
+
   <?php endwhile; else: ?>
-    <article>
+    <section>
 
       <h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
 
-    </article>
+    </section>
   <?php endif; ?>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

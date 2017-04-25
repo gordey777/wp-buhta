@@ -53,6 +53,26 @@ $(document).ready(function() {
     moveSlides: 1,
     slideMargin: 10,
     pager: false,
+    touchEnabled: true,
+    prevText: '',
+    nextText: '',
+  });
+
+  $('.bxpost-gallery').bxSlider({
+    mode: 'fade',
+    touchEnabled: true,
+    controls: false,
+    pagerCustom: '#bx-pager'
+  });
+
+$('#bx-pager').bxSlider({
+    slideWidth: 5000,
+    minSlides: 3,
+    maxSlides: 3,
+    moveSlides: 1,
+    slideMargin: 40,
+    pager: false,
+    touchEnabled: true,
     prevText: '',
     nextText: '',
   });

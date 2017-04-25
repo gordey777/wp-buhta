@@ -29,7 +29,7 @@
 <body <?php body_class(); ?>>
   <header class="main-header">
 
-    <div class="head-content-wrap">
+    <div class="head-content-wrap" <?php if( get_field('title_bg') ) { ?>style="background: url(<?php the_field('title_bg'); ?>) no-repeat center center; background-size: 100%;"<?php } ?>>
       <div class="header-nav-row">
         <div class="nav container-fluid">
           <div class="wrapper">

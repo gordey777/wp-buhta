@@ -217,40 +217,18 @@
       <h2>Экскурсии по чудесам песчанной бухты</h2>
       <div class="row">
 
-        <?php $args = array(
-          'posts_per_page' => 4,//ID рубрики Экскурсии
-          'cat' => '11',
+        <?php
+         $args = array(
+                 'cat' => '11', //ID Рубрики
+                 'post_type' => 'post',
+                 'posts_per_page' => 4, //Количество постов в блоке ПОЛЕЗНЫЕ СТАТЬИ
+                 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
+                 );
+        query_posts($args); ?>
 
-        );
+        <?php get_template_part('loop'); ?>
 
-        $query = new WP_Query( $args );
-
-
-        if ( $query->have_posts() ) {
-          while ( $query->have_posts() ) {
-            $query->the_post(); ?>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="box-wrap for-outline">
-                <div class="img-wrap">
-                  <a rel="nofollow" class="feature-img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                    <?php if ( has_post_thumbnail()) :
-                      the_post_thumbnail('medium');
-                    else: ?>
-                      <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
-                    <?php endif; ?>
-                  </a><!-- /post thumbnail -->
-                </div>
-                <div class="box-text">
-                  <h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
-                  <?php wpeExcerpt('wpeExcerpt40'); ?>
-                </div>
-              </div>
-            </div>
-
-          <?php }
-        }
-
-        wp_reset_postdata(); ?>
+        <?php wp_reset_query(); ?>
 
       </div>
     </div>

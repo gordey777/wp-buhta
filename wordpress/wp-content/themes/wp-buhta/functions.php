@@ -82,7 +82,8 @@ if (function_exists('add_theme_support')) {
   add_image_size('large', 1200, '', true); // Large Thumbnail
   add_image_size('medium', 600, '', true); // Medium Thumbnail
   add_image_size('small', 250, '', true); // Small Thumbnail
-  add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+  add_image_size('custom-size', 150, 100, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+  add_image_size('custom-size-small', 250, 130, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
   // Enables post and comment RSS feed links to head
   add_theme_support('automatic-feed-links');
@@ -653,10 +654,32 @@ function disable_emojicons_tinymce( $plugins ) {
   }
 }
 
+//удаление тегов параграфа для отдельных картинок start
+function wph_remove_p_images($content){
+    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+add_filter('the_content', 'wph_remove_p_images');
+//удаление тегов параграфа для отдельных картинок end
+
+//Постраничная навигация с асинхронной подгрузкой постов в WordPress
+
+function true_load_posts(){
+  $args = unserialize(stripslashes($_POST['query']));
+  $args['paged'] = $_POST['page'] + 1; // следующая страница
+  $args['post_status'] = 'publish';
+  $q = new WP_Query($args);
+  if( $q->have_posts() ):
+    while($q->have_posts()): $q->the_post();
+      @include 'pagination-ajax.php';
+    endwhile;
+  endif;
+  wp_reset_postdata();
+  die();
+}
 
 
-
-
+add_action('wp_ajax_loadmore', 'true_load_posts');
+add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
 
 
 
