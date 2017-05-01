@@ -19,34 +19,15 @@
         if( $images ) { ?>
           <div class="col-md-6 col-sm-12">
             <div class="rama-wrap">
-
-              <ul class="bxpost-gallery">
+              <div class="fotorama">
                 <?php foreach( $images as $image ): ?>
-                  <li>
-                    <a href="<?php echo $image['url']; ?>" rel="lightbox">
-                         <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
-                    </a>
-                  </li>
+                  <img src="<?php echo $image['url']; ?>">
                 <?php endforeach; ?>
-              </ul>
-
-              <div class="pager_wrapp">
-                <ul id="bx-pager">
-                <?php $i = 0;
-                  foreach( $images as $image ): ?>
-                    <li>
-                      <a data-slide-index="<?php echo $i; ?>" href="">
-                        <img src="<?php echo $image['sizes']['custom-size-small']; ?>" alt="<?php echo $image['alt']; ?>" />
-                      </a>
-                    </li>
-                    <?php $i++;
-                  endforeach; ?>
-                </ul>
               </div>
-
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 content">
+
+          <div class="col-md-6 col-sm-12 content has__gallery">
         <?php }
         else { ?>
           <div class="col-md-12 col-sm-12 content">

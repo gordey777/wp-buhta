@@ -3,11 +3,7 @@
         <?php while ( have_rows('slider_cont', 43 ) ) : the_row(); ?>
           <div class="wrapper title-wrap">
             <h1>
-            <?php the_sub_field('title'); ?>
-            <span class="link-h1">
-            <a href="<?php the_sub_field('partner_link'); ?>">сайт официального представителя</a>
-            </span>
-            </span>
+              <?php the_sub_field('title'); ?>
             </h1>
             <?php the_sub_field('content'); ?>
             <div class="button-row">
@@ -40,19 +36,21 @@
       <section class="second">
         <div class="container-fluid for-about">
           <h2><?php the_sub_field('title'); ?></h2>
-          <p class="card"><?php the_sub_field('desc'); ?></p>
-          <div class="row">
+          <p class="card"><?php the_sub_field('title_desc'); ?></p>
+          <div class="row row-flex">
 
             <?php if( have_rows('sub_items') ): ?>
               <?php while ( have_rows('sub_items') ) : the_row(); ?>
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                  <div class="box-wrapbox-wrap-about">
-                    <div class="underline about-icon">
-                      <img src="<?php the_sub_field('sub_img'); ?>">
-                    </div>
-                    <div class="box-text-wrap">
-                      <h3><?php the_sub_field('sub_title'); ?></h3>
-                      <?php the_sub_field('sub_desc'); ?>
+                <div class="col-md-3 col-md-offset-1 col-sm-offset-0 col-sm-6">
+                  <div class="col-lg-9 col-md-12">
+                    <div class="box-wrapbox-wrap-about">
+                      <div class="underline about-icon">
+                        <img src="<?php the_sub_field('sub_img'); ?>">
+                      </div>
+                      <div class="box-text-wrap">
+                        <h3><?php the_sub_field('sub_title'); ?></h3>
+                        <?php the_sub_field('sub_desc'); ?>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -90,11 +88,11 @@
       <div class="container-fluid">
         <h2>Чем мы отличаемся от других мест на байкале?</h2>
 
-        <div class="row">
+        <div class="row row-flex">
           <?php while ( have_rows('differences') ) : the_row(); ?>
 
-            <div class="col-md-4 col-sm-12 col-xs-12">
-              <div class="box-wrap for-outline about-3sec">
+            <div class="col-md-4 col-sm-12 col-xs-12  looper_wrapp">
+              <div class="looper-about">
                 <div class="img-wrap">
                   <img src="<?php the_sub_field('img'); ?>" alt="наши преймущества">
                 </div>
@@ -111,37 +109,25 @@
     </section>
   <?php endif; ?>
 
+<?php if( have_rows('selection') ): ?>
+  <?php while ( have_rows('selection') ) : the_row(); ?>
+    <section class="selection" style="background: url(<?php the_sub_field('image_bg'); ?>) no-repeat top center;">
+      <div class="container-fluid select">
+        <div class="row">
+          <div class="col-xs-12">
+            <?php the_sub_field('content'); ?>
 
-  <section class="selection">
-    <div class="container-fluid select">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="linc-select">
-            <a href="#">Хотите буджетно отдохнуть на байкале, но еще не определились с выбором?</a>
-          </div>
-          <h2 class="select-title">Выбирая турбазу «песчанка» вас ожидают
-          <span>незабываемые впечатления от летнего отдыха!</span>
-          </h2>
-          <ul>
-            <li>Цена для взрослых - 2200 руб/в день</li>
-            <li>Цена для детей не старше 22 лет - 1900руб/в день</li>
-            <li>Проезд на теплоходе "Баргузин" туда -обратно - 4200 руб</li>
-            <li>Трансфер в Большое Галаусное и доставка до турбазы на нашем судне туда-обратно - 2700 руб</li>
-          </ul>
-          <div class="select-button-row">
-            <a href="#" class="select-button video-start">купить путевку</a>
-          </div>
-          <div class="payments-row">
-            <p>Все платежи осуществляются посредством сервиса безопасных платежей<a href="https://www.payanyway.ru">www.payanyway.ru</a></p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php  endwhile; ?>
+<?php endif; ?>
+
     <section class="fourth">
     <div class="container-fluid">
       <h2>достопремичательности песчанки</h2>
-      <div class="row">
+      <div class="row  row-flex">
 
         <?php
          $args = array(

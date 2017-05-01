@@ -46,3 +46,39 @@ jQuery(function($) {
     });
   });
 });
+
+
+$(document).ready(function() {
+  var loopImgW = $('.looper').width(),
+    loopImgH = loopImgW * .85,
+    mainSlideH = $('header').height();
+
+  $('.looper .img-wrap').height(loopImgH);
+
+
+  var hsSlideSmallW = $('.hs_small_img').width(),
+    hsSlideSmallH = hsSlideSmallW * .7,
+    hsSlideBigW = $('.hs_big_img').width(),
+    hsSlideBigH = hsSlideBigW * .5;
+
+  $('.hs_small_img').height(hsSlideSmallH);
+  $('.hs_big_img').height(hsSlideBigH);
+
+  $(window).resize(function() {
+    var loopImgW = $('.looper').width(),
+      loopImgH = loopImgW * .85;
+    $('.looper .img-wrap').height(loopImgH);
+
+
+    var hsSlideSmallW = $('.hs_small_img').width(),
+      hsSlideSmallH = hsSlideSmallW * .7,
+      hsSlideSmallW = $('.hs_big_img').width(),
+      hsSlideBigH = hsSlideBigW * .5;
+
+    $('.hs_small_img').height(hsSlideSmallH);
+    $('.hs_big_img').height(hsSlideBigH);
+
+
+  })
+
+});

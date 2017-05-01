@@ -1,26 +1,26 @@
-$(document).ready(function() {
+jQuery(document).ready(function() {
   //modal-video
-  var $nav = $('a.video-start');
-  $nav.click(function() {
-    $('.modal-video').slideDown(250);
-  })
+  // var $nav = $('a.video-start');
+  // $nav.click(function() {
+  //   $('.modal-video').slideDown(250);
+  // })
 
-  $('span.close-nav').click(function() {
-    $('.modal-video').hide();
-  })
+  // $('span.close-nav').click(function() {
+  //   $('.modal-video').hide();
+  // })
 
-  var $nav = $('a.video-start');
-  $nav.click(function() {
-    $('.video-window').show();
-  })
+  // var $nav = $('a.video-start');
+  // $nav.click(function() {
+  //   $('.video-window').show();
+  // })
 
-  $('span.close-nav').click(function() {
-    $('.video-window').slideUp();
-  })
+  // $('span.close-nav').click(function() {
+  //   $('.video-window').slideUp();
+  // })
 
-  $('a.close-video2').click(function() {
-    $('.modal-video').slideUp();
-  })
+  // $('a.close-video2').click(function() {
+  //   $('.modal-video').slideUp();
+  // })
 
   // Dropdown menu
   var $nav = $('div.adaptiv-button-wrap');
@@ -40,8 +40,9 @@ $(document).ready(function() {
     infinite: true,
     speed: 300,
     fade: true,
+    adaptiveHeight: true,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 5000,
     cssEase: 'linear',
   })
 
@@ -62,10 +63,11 @@ $(document).ready(function() {
     mode: 'fade',
     touchEnabled: true,
     controls: false,
+    adaptiveHeight: true,
     pagerCustom: '#bx-pager'
   });
 
-$('#bx-pager').bxSlider({
+  $('#bx-pager').bxSlider({
     slideWidth: 5000,
     minSlides: 3,
     maxSlides: 3,
@@ -73,6 +75,7 @@ $('#bx-pager').bxSlider({
     slideMargin: 40,
     pager: false,
     touchEnabled: true,
+    adaptiveHeight: true,
     prevText: '',
     nextText: '',
   });
@@ -84,11 +87,10 @@ $('#bx-pager').bxSlider({
       .closest('div.tabs____tabs').find('div.tab_content').removeClass('current').eq($(this).index()).addClass('current');
 
   });
-  $('#tabs_list li').click(function(e) {
-    e.preventDefault();
-    slider.reloadSlider();
-  });
-
+  // $('#tabs_list li').click(function(e) {
+  //   e.preventDefault();
+  //   slider.reloadSlider();
+  // });
 
 
 });

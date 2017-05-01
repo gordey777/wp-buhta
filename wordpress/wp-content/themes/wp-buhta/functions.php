@@ -111,7 +111,7 @@ function wpeHeadNav() {
     'link_after'      => '',
     'items_wrap'      => '<ul class="headnav top-nav">%3$s</ul>',
     'depth'           => 0,
-    'walker'          => ''
+    'walker'          => new mainMenuWalker(),
     )
   );
 }
@@ -134,7 +134,7 @@ function wpeFootNav() {
     'link_after'      => '',
     'items_wrap'      => '<ul class="footernav">%3$s</ul>',
     'depth'           => 0,
-    'walker'          => ''
+    'walker'          => new mainMenuWalker(),
     )
   );
 }
@@ -681,6 +681,38 @@ function true_load_posts(){
 add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
 
+//ADD rel=nofollow to nav menu
+
+
+//Rem sels links on current page
+class mainMenuWalker extends Walker_Nav_Menu {
+  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+
+    $class_names = join( ' ', $item->classes );
+    $class_names = ' class="' .esc_attr( $class_names ). '"';
+    $output.= '<li id="menu-item-' . $item->ID . '"' .$class_names. '>';
+
+    $attributes.= !empty( $item->url ) ? ' href="' .esc_attr($item->url). '"' : '';
+    $item_output = $args->before;
+
+    $current_url = (is_ssl()?'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $item_url = esc_attr( $item->url );
+    if ( $item_url != $current_url ) {
+      if ( ! is_front_page() ) {
+        $item_output.= '<a'. $attributes .'rel="nofollow">'.$item->title.'</a>';
+      }
+      else{
+        $item_output.= '<a'. $attributes .'>'.$item->title.'</a>';
+      }
+
+    }
+    else $item_output.= $item->title;
+
+    $item_output.= $args->after;
+    $output.= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+  }
+
+}
 
 
 ?>

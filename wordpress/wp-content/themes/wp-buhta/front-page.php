@@ -3,11 +3,7 @@
         <?php while ( have_rows('slider_cont', 43 ) ) : the_row(); ?>
           <div class="wrapper title-wrap">
             <h1>
-            <?php the_sub_field('title'); ?>
-            <span class="link-h1">
-            <a href="<?php the_sub_field('partner_link'); ?>">сайт официального представителя</a>
-            </span>
-            </span>
+              <?php the_sub_field('title'); ?>
             </h1>
             <?php the_sub_field('content'); ?>
             <div class="button-row">
@@ -94,8 +90,8 @@
           <?php if ($tab_id == 1){
             $car_class = 'current';
           } ?>
-          <div id="tab-<?php echo $tab_id; ?>" class="tab_content <?php //echo $car_class; ?>">
-            <ul id="tab_slider<?php echo $tab_id; ?>" class="bxslider">
+          <div id="tab-<?php echo $tab_id; ?>" class="tab_content header_gallery <?php //echo $car_class; ?>">
+            <ul id="tab_slider<?php echo $tab_id; ?>" class="bxslider row">
             <?php  $tab_id++; ?>
             <?php $images = get_sub_field('image'); ?>
 
@@ -109,86 +105,76 @@
 
               while ( $k < $n_max ) { ?>
                   <?php if ( $i < $i_max ) { ?>
-                    <li>
-                      <div class="first-foto-group">
-                        <div class="top-group first">
-                          <div class="left-foto">
-                            <div class="effect eff-2-1">
-                              <?php if ($i < $i_max ) { ?>
-                                <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                                  <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
-<!--                                   <div class="caption" style="background: url(<?php //echo $images[$i]['sizes']['large']; ?>) no-repeat center center;">
-</div> -->
-                                </a>
-                              <?php $i++;
-                              } ?>
-                            </div>
-                          </div>
-                          <div class="right-foto">
-                            <div class="effect eff-2-1">
-                              <?php if ($i < $i_max ) { ?>
-                                <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                                  <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                    <li class="col-xs-6">
+                      <div class="row top_row">
 
-                                </a>
-                              <?php $i++;
-                              } ?>
-                            </div>
-                          </div>
+                        <div class="col-xs-6 hs_small_img">
+                          <?php if ($i < $i_max ) { ?>
+                            <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                            </a>
+                            <?php $i++;
+                          } ?>
                         </div>
-                        <div class="bottom-foto first">
-                          <div class="effect eff-2-1">
-                              <?php if ($i < $i_max ) { ?>
-                                <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                                  <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
 
-                                </a>
-                              <?php $i++;
-                              } ?>
-                          </div>
+                        <div class="col-xs-6 hs_small_img">
+                          <?php if ($i < $i_max ) { ?>
+                            <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                            </a>
+                            <?php $i++;
+                          } ?>
                         </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xs-12 hs_big_img">
+                          <?php if ($i < $i_max ) { ?>
+                            <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                            </a>
+                            <?php $i++;
+                          } ?>
+                        </div>
+
                       </div>
                     </li>
                   <?php
                   }
 
                   if ($i < $i_max ) { ?>
-                    <li>
-                      <div class="second-foto-group">
-                        <div class="bottom-foto second">
-                          <div class="effect eff-2-1">
-                              <?php if ($i < $i_max ) { ?>
-                                <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                                  <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                    <li class="col-xs-6">
+                      <div class="row top_row">
 
-                                </a>
-                              <?php $i++;
-                              } ?>
-                          </div>
+                        <div class="col-xs-12 hs_big_img">
+                          <?php if ($i < $i_max ) { ?>
+                            <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                            </a>
+                            <?php $i++;
+                          } ?>
                         </div>
-                        <div class="top-group second">
-                          <div class="left-foto">
-                            <div class="effect eff-2-1">
-                              <?php if ($i < $i_max ) { ?>
-                                <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                                  <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
 
-                                </a>
-                              <?php $i++;
-                              } ?>
-                            </div>
-                          </div>
-                          <div class="right-foto">
-                            <div class="effect eff-2-1">
-                              <?php if ($i < $i_max ) { ?>
-                                <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                                  <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                      </div>
 
-                                </a>
-                              <?php $i++;
-                              } ?>
-                            </div>
-                          </div>
+                      <div class="row">
+
+                        <div class="col-xs-6 hs_small_img">
+                          <?php if ($i < $i_max ) { ?>
+                            <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                            </a>
+                            <?php $i++;
+                          } ?>
+                        </div>
+
+                        <div class="col-xs-6 hs_small_img">
+                          <?php if ($i < $i_max ) { ?>
+                            <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                            </a>
+                            <?php $i++;
+                          } ?>
                         </div>
                       </div>
                     </li>
@@ -215,7 +201,7 @@
   <section class="fourth">
     <div class="container-fluid">
       <h2>Экскурсии по чудесам песчанной бухты</h2>
-      <div class="row">
+      <div class="row row-flex">
 
         <?php
          $args = array(

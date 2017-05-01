@@ -59,7 +59,7 @@
                 </div>
               </div>
             </div>
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ab64f01b25fee124a5ce8786bac70762042c5e9f5a0afd2feafeac65ecbbcca3f&amp;width=100%&amp;height=490&amp;lang=ru_UA&amp;scroll=true"></script>
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A046ef45414b6ed649edfb3c5ac4936bd6cce831e3fed57982f42bf6521e7da85&amp;width=100%25&amp;height=439&amp;lang=uk_UA&amp;scroll=true"></script>
           </div>
         </div>
       </section>

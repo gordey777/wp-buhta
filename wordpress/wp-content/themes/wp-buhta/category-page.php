@@ -12,7 +12,7 @@
   <!-- header and -->
   <section class="fourth fourth-singht">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row row-flex">
         <?php
         $taxonomies = get_field('posts_category');
 

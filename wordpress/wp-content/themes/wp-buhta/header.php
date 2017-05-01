@@ -12,7 +12,6 @@
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,800" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 
   <!-- icons -->
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.png" type="img/png">
@@ -23,6 +22,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
   <!-- css + javascript -->
+  <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
   <?php wp_head(); ?>
 </head>
 
@@ -35,15 +35,14 @@
           <div class="wrapper">
             <div class="nav-row">
               <div class="logo-wrap">
-<!--                 <?php if ( ! is_front_page() || ! is_home() ) { ?>
-  <a href="<?php echo home_url(); ?>">
-<?php  } ?>
-<?php if ( ! is_front_page() || ! is_home() ) { ?>
-  </a>
-<?php  } ?> -->
-                <a href="index.html" class="buhta">Песчаная <span>бухта</span></a>
-                <a href="index.html" class="baza">лучшая база отдыха на байкале</a>
-
+                <?php if ( ! is_front_page() ) { ?>
+                  <a href="<?php echo home_url(); ?>">
+                <?php  } ?>
+                  <span class="buhta">Песчаная <span>бухта</span></span>
+                  <span class="baza">лучшая база отдыха на байкале</span>
+                <?php if ( ! is_front_page() ) { ?>
+                  </a>
+                <?php  } ?>
               </div>
               <div class="nav-wrap main-nav">
                 <nav class="navigation">
@@ -51,7 +50,7 @@
                 </nav>
               </div>
               <div class="phone-wrap">
-                <div class="buy"><a href="#" class="video-start">Купить путевку</a></div>
+                <div class="buy"><span class="red__button"  data-toggle="modal" data-target="#modal_order">Купить путевку</span></div>
                 <div class="phone-top">
                   <?php if( have_rows('phone_number', 43 ) ): ?>
                     <?php while ( have_rows('phone_number', 43 ) ) : the_row(); ?>
@@ -61,7 +60,7 @@
                     <?php  endwhile; ?>
                   <?php endif; ?>
                   <div class="phone-top-span">
-                    <span data-toggle="modal" data-target=".bs-example-modal-sm">заказать обратный звонок</span>
+                    <span data-toggle="modal" data-target="#modal_callback">заказать обратный звонок</span>
                   </div>
                 </div>
                 <div class="adaptiv-button-wrap">
@@ -74,7 +73,7 @@
             </div>
             <div class="clear"></div>
           </div>
-          <div class="adaptive-buy"><a href="#" class="video-start">Купить путевку</a></div>
+          <div class="adaptive-buy"><span class="red__button" data-toggle="modal" data-target="#modal_order">Купить путевку</span></div>
         </div>
       </div>
 
