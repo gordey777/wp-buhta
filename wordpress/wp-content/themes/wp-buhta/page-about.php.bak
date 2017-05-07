@@ -78,10 +78,10 @@
       <div class="container-fluid">
         <h2>Чем мы отличаемся от других мест на байкале?</h2>
 
-        <div class="row differences">
+        <div class="row row-flex">
           <?php while ( have_rows('differences') ) : the_row(); ?>
 
-            <div class="col-md-4 col-sm-12 col-xs-12 looper_wrapp">
+            <div class="col-md-4 col-sm-12 col-xs-12  looper_wrapp">
               <div class="looper-about">
                 <div class="img-wrap">
                   <img src="<?php the_sub_field('img'); ?>" alt="наши преймущества">
@@ -114,37 +114,41 @@
   <?php  endwhile; ?>
 <?php endif; ?>
 
-<?php if( have_rows('cards') ): ?>
-  <section class="fourth">
+    <section class="fourth">
     <div class="container-fluid">
-      <h2><?php the_field('cards_title'); ?></h2>
-      <div class="row row-flex">
-        <?php while ( have_rows('cards') ) : the_row(); ?>
-          <div class="col-md-3 col-sm-6 col-xs-12 looper_wrapp">
-            <div class="looper">
-              <a href="<?php the_sub_field('link'); ?>" title="<?php the_sub_field('title'); ?>">
-                  <div class="img-wrap">
-                  <?php $image = get_sub_field('img'); ?>
-                      <?php if ( !empty($image)) : ?>
-                        <img src="<?php echo $image['sizes']['thumbnail']; ?>" title="<?php the_sub_field('title'); ?>" alt="<?php the_sub_field('title'); ?>" />
-                      <?php else: ?>
-                        <img src="<?php get_template_directory_uri();?>/img/noimage.jpg" title="<?php the_sub_field('title'); ?>" alt="<?php the_sub_field('title'); ?>" />
-                      <?php endif; ?>
-                  </div>
-                  <div class="box-text">
-                    <h3><?php the_sub_field('title'); ?></h3>
-                    <?php the_sub_field('desc'); ?>
-                  </div>
-                  <div class="box-wrap-detalis">
-                    <span>Подробнее...</span>
-                  </div>
-              </a>
-            </div><!-- /looper -->
-          </div>
-        <?php  endwhile; ?>
+      <h2>достопремичательности песчанки</h2>
+      <div class="row  row-flex">
+
+        <?php
+         $args = array(
+                 'cat' => '11', //ID Рубрики
+                 'post_type' => 'post',
+                 'posts_per_page' => 4, //Количество постов в блоке ПОЛЕЗНЫЕ СТАТЬИ
+                 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
+                 );
+        query_posts($args); ?>
+
+        <?php get_template_part('loop'); ?>
+
+        <?php //get_template_part('pagination'); ?>
+
+        <?php if (  $wp_query->max_num_pages > 1 ) : ?>
+
+            <div id="true_loadmore"  class="view-more col-md-12">
+              посмотртеть больше...
+            </div>
+
+          <script>
+            var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
+            var true_posts = '<?php echo serialize($wp_query->query_vars); ?>';
+            var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
+            var max_pages = '<?php echo $wp_query->max_num_pages; ?>';
+          </script>
+
+        <?php endif; ?>
+
       </div>
     </div>
   </section>
-<?php endif; ?>
 
 <?php get_footer(); ?>

@@ -791,11 +791,12 @@
   }
   .select-button-row {
     text-align: center;
-  }
-  .select-button-row a {
-    font-size: 15px;
+    .red__button,
+    a {
+      font-size: 15px;
 
-    padding: 7px 30px;
+      padding: 7px 30px;
+    }
   }
   .slick-dots {
     display: none;
@@ -1204,5 +1205,20 @@
   }
   section.selection ul li {
     margin-bottom: 10px;
+  }
+}
+@media (min-width: 993px) {
+  .rama-wrap {
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide-content {
+    .title-wrap {
+      h1 {
+        padding-top: 12vh;
+      }
+    }
   }
 }

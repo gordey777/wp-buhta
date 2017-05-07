@@ -64,6 +64,8 @@ $(document).ready(function() {
   $('.hs_small_img').height(hsSlideSmallH);
   $('.hs_big_img').height(hsSlideBigH);
 
+
+
   $(window).resize(function() {
     var loopImgW = $('.looper').width(),
       loopImgH = loopImgW * .85;

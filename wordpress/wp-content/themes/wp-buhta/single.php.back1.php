@@ -18,8 +18,17 @@
           <?php
           if( $images ) { ?>
             <div class="col-md-6 col-sm-12">
-
+<!--               <div class="rama-wrap">
+  <div class="fotorama">
+    <?php //foreach( $images as $image ): ?>
+      <a href="<?php //echo $image['sizes']['large']; ?>">
+          <img src="<?php //echo $image['sizes']['thumbnail']; ?>">
+      </a>
+    <?php //endforeach; ?>
+  </div>
+</div> -->
               <div class="rama-wrap">
+
 
                 <div id="sync1" class="owl-carousel owl-theme">
                   <?php foreach( $images as $image ): ?>
@@ -35,7 +44,7 @@
                   <div id="sync2" class="owl-carousel owl-theme">
                     <?php foreach( $images as $image ): ?>
                       <div class="item">
-                        <img src="<?php echo $image['sizes']['custom-size']; ?>" alt="<?php echo $image['alt']; ?>" />
+                        <img src="<?php echo $image['sizes']['custom-size-small']; ?>" alt="<?php echo $image['alt']; ?>" />
                       </div>
                     <?php endforeach; ?>
                   </div>

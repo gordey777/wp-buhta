@@ -1,18 +1,28 @@
 <?php /* Template Name: Front Page */ get_header(); ?>
-
-            <!-- Slider -->
-    <div class="slide-content">
-      <?php if( have_rows('header_slider') ): ?>
-        <?php while ( have_rows('header_slider') ) : the_row(); ?>
-            <?php $image = get_sub_field('img'); ?>
-          <div class="content-slide" <?php if( !empty($image) ) { ?> style="background: url(<?php echo $image['url']; ?>) no-repeat center center; background-size: cover;"<?php } ?>>
-
+      <?php if( have_rows('slider_cont', 43 ) ): ?>
+        <?php while ( have_rows('slider_cont', 43 ) ) : the_row(); ?>
           <div class="wrapper title-wrap">
-              <?php the_sub_field('content'); ?>
+            <h1>
+              <?php the_sub_field('title'); ?>
+            </h1>
+            <?php the_sub_field('content'); ?>
             <div class="button-row">
-              <a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('btn_title'); ?></a>
+              <a href="<?php the_sub_field('link'); ?>">Подробнее о турбазе</a>
             </div>
           </div>
+        <?php  endwhile; ?>
+      <?php endif; ?>
+    </div>
+    <div class="clear"></div>
+            <!-- Slider -->
+    <div class="slide-content">
+      <?php if( have_rows('top_slider', 43 ) ): ?>
+        <?php while ( have_rows('top_slider', 43 ) ) : the_row(); ?>
+          <div>
+            <?php $image = get_sub_field('image');
+            if( !empty($image) ): ?>
+              <img src="<?php echo $image['url']; ?>" alt="Песчаная бухта">
+            <?php endif; ?>
           </div>
         <?php  endwhile; ?>
       <?php endif; ?>
@@ -101,7 +111,7 @@
                         <div class="col-xs-6 hs_small_img">
                           <?php if ($i < $i_max ) { ?>
                             <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                              <img src="<?php echo $images[$i]['sizes']['medium']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
                             </a>
                             <?php $i++;
                           } ?>
@@ -110,7 +120,7 @@
                         <div class="col-xs-6 hs_small_img">
                           <?php if ($i < $i_max ) { ?>
                             <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                              <img src="<?php echo $images[$i]['sizes']['medium']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
                             </a>
                             <?php $i++;
                           } ?>
@@ -121,7 +131,7 @@
                         <div class="col-xs-12 hs_big_img">
                           <?php if ($i < $i_max ) { ?>
                             <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                              <img src="<?php echo $images[$i]['sizes']['medium']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
                             </a>
                             <?php $i++;
                           } ?>
@@ -139,7 +149,7 @@
                         <div class="col-xs-12 hs_big_img">
                           <?php if ($i < $i_max ) { ?>
                             <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                              <img src="<?php echo $images[$i]['sizes']['medium']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
                             </a>
                             <?php $i++;
                           } ?>
@@ -152,7 +162,7 @@
                         <div class="col-xs-6 hs_small_img">
                           <?php if ($i < $i_max ) { ?>
                             <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                              <img src="<?php echo $images[$i]['sizes']['medium']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
                             </a>
                             <?php $i++;
                           } ?>
@@ -161,7 +171,7 @@
                         <div class="col-xs-6 hs_small_img">
                           <?php if ($i < $i_max ) { ?>
                             <a href="<?php echo  $images[$i]['url']; ?>" rel="lightbox">
-                              <img src="<?php echo $images[$i]['sizes']['medium']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
+                              <img src="<?php echo $images[$i]['sizes']['large']; ?>" alt="<?php echo $images[$i]['alt']; ?>" />
                             </a>
                             <?php $i++;
                           } ?>
@@ -187,38 +197,28 @@
     </section>
   <?php endif; ?>
 
-<?php if( have_rows('cards') ): ?>
+
   <section class="fourth">
     <div class="container-fluid">
-      <h2><?php the_field('cards_title'); ?></h2>
+      <h2>Экскурсии по чудесам песчанной бухты</h2>
       <div class="row row-flex">
-        <?php while ( have_rows('cards') ) : the_row(); ?>
-          <div class="col-md-3 col-sm-6 col-xs-12 looper_wrapp">
-            <div class="looper">
-              <a href="<?php the_sub_field('link'); ?>" title="<?php the_sub_field('title'); ?>">
-                  <div class="img-wrap">
-                  <?php $image = get_sub_field('img'); ?>
-                      <?php if ( !empty($image)) : ?>
-                        <img src="<?php echo $image['sizes']['medium']; ?>" title="<?php the_sub_field('title'); ?>" alt="<?php the_sub_field('title'); ?>" />
-                      <?php else: ?>
-                        <img src="<?php get_template_directory_uri();?>/img/noimage.jpg" title="<?php the_sub_field('title'); ?>" alt="<?php the_sub_field('title'); ?>" />
-                      <?php endif; ?>
-                  </div>
-                  <div class="box-text">
-                    <h3><?php the_sub_field('title'); ?></h3>
-                    <?php the_sub_field('desc'); ?>
-                  </div>
-                  <div class="box-wrap-detalis">
-                    <span>Подробнее...</span>
-                  </div>
-              </a>
-            </div><!-- /looper -->
-          </div>
-        <?php  endwhile; ?>
+
+        <?php
+         $args = array(
+                 'cat' => '11', //ID Рубрики
+                 'post_type' => 'post',
+                 'posts_per_page' => 4, //Количество постов в блоке ПОЛЕЗНЫЕ СТАТЬИ
+                 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
+                 );
+        query_posts($args); ?>
+
+        <?php get_template_part('loop'); ?>
+
+        <?php wp_reset_query(); ?>
+
       </div>
     </div>
   </section>
-<?php endif; ?>
 
     <?php if (have_posts()): while (have_posts()) : the_post(); ?>
       <section class="price">

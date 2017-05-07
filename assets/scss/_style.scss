@@ -188,8 +188,14 @@ header {
   height: 100%;
 } */
     z-index: 0;
-
-    padding-bottom: 100px;
+    .header-nav-row {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+    //padding-bottom: 100px;
   }
 }
 
@@ -284,8 +290,8 @@ h1 span.link-h1 {
 
   vertical-align: middle;
 
-  color: #0174d3;
-  border-left: 4px solid #0174d3;
+  color: #008cff;
+  border-left: 4px solid #008cff;
 }
 
 h2 {
@@ -456,11 +462,12 @@ a {
   a {
     font-family: 'Ubuntu', sans-serif;
     font-size: 13px;
-cursor: pointer;
+
     position: relative;
 
     padding: 11px 40px;
 
+    cursor: pointer;
     white-space: nowrap;
     text-transform: uppercase;
 
@@ -549,14 +556,14 @@ p {
   text-transform: uppercase;
 
   color: #fff;
-  background: url('../img/home/button-arrow.png') no-repeat right 12px center #0174d3;
+  background: url('../img/home/button-arrow.png') no-repeat right 12px center #008cff;
   &:hover {
-    font-size: 16px;
-    line-height: 55px;
+    //font-size: 16px;
+    //line-height: 55px;
 
-    padding: 2px 48px 0 40px;
+    //padding: 2px 48px 0 40px;
 
-    background-color: #4690cd;
+    background-color: #007de4;
   }
 }
 
@@ -663,9 +670,9 @@ section.third {
   position: absolute;
   z-index: -1;
   top: 50px;
-  left: 15px;
   right: 15px;
   bottom: 0;
+  left: 15px;
   //height: 625px;
   .bx-controls {
     display: none;
@@ -740,7 +747,7 @@ nav.sec-nav {
     background-size: cover;
   }
   a {
-    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
     &:hover {
       &:before {
         background: rgba(0, 0, 0, .4);
@@ -815,30 +822,7 @@ nav.sec-nav {
   margin-bottom: 12px;
 }
 
-.slick-dots {
-  z-index: 999999;
-  bottom: 55px;
 
-  padding-left: 35px;
-
-  text-align: left;
-  li {
-    border-radius: 50%;
-    background-color: #fff;
-    button:before {
-      border-radius: 50%;
-      background-color: #fff;
-    }
-    &.slick-active {
-      background-color: transparent;
-      button:before {
-        border: 3px solid #008cff;
-        border-radius: 50%;
-        background-color: transparent;
-      }
-    }
-  }
-}
 
 .bx-wrapper .bx-viewport {
   left: 0;
@@ -872,7 +856,7 @@ nav.sec-nav {
 }
 
 section.fourth {
-  padding: 100px 80px;
+  padding: 100px 80px 50px 80px;
 
   text-align: center;
   img {
@@ -1396,6 +1380,24 @@ section.rock {
     color: #333;
   }
 }
+
+.fotorama__stage__shaft {
+  .fotorama__stage__frame {
+    overflow: hidden;
+
+    height: 100%;
+    img {
+      top: 0 !important;
+      left: 0 !important;
+
+      width: auto !important;
+      min-width: 100% !important;
+      height: auto !important;
+      min-height: 100% !important;
+    }
+  }
+}
+
 
 .fotorama__nav__frame.fotorama__nav__frame--thumb {
   width: 88px;
@@ -2399,16 +2401,18 @@ h2.select-title {
   margin-bottom: 68px;
 
   text-align: left;
+  .red__button,
   a {
+    font-family: 'Ubuntu', sans-serif;
     font-size: 18px;
     font-weight: normal;
 
-    padding: 10px 60px;
+    padding: 15px 70px;
 
     text-transform: uppercase;
 
     color: #fff;
-    border-radius: 20px;
+    border-radius: 50px;
     background-color: #f34943;
     &:hover {
       background-color: #d52822;

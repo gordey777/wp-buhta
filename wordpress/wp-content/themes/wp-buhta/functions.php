@@ -83,7 +83,7 @@ if (function_exists('add_theme_support')) {
   add_image_size('medium', 600, '', true); // Medium Thumbnail
   add_image_size('small', 250, '', true); // Small Thumbnail
   add_image_size('custom-size', 150, 100, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
-  add_image_size('custom-size-small', 250, 130, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+  add_image_size('custom-size-small', 130, 100, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
   // Enables post and comment RSS feed links to head
   add_theme_support('automatic-feed-links');
